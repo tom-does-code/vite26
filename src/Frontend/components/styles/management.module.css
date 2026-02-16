@@ -1,0 +1,23 @@
+.ManagementDiv {
+    position: absolute;
+    background-color: rgb(71, 71, 71);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+
+    width: 1000px;
+    height: 800px;
+
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-size: 45px;
+}
+
+.statsDiv {
+    background-color: aliceblue;
+}

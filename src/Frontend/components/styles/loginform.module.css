@@ -1,0 +1,24 @@
+.LoginContainer, .SignupContainer {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loginButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #00a70e;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin-top: 30px;
+}
+
+.toggleLogin {
+  cursor: pointer;
+  color: rgb(0, 204, 255);
+}

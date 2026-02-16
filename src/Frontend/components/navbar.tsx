@@ -14,12 +14,13 @@ export default function Navbar() {
             {navbarActive && (
                 <nav>
                     <ul>
-                        <li><Link to="/Home">Home</Link></li>
+                        <li className={styles.logoutbtn}><Link to="/">Log Out</Link></li>
+                        <li><Link to="/management">Management</Link></li>
+                        <li><Link to="/budgetmanager">Budget Manager</Link></li>
                     </ul>
                 </nav>
             )}
         </div>
-        
         </>
     )
 }
