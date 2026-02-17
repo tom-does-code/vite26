@@ -12,11 +12,20 @@ export default function NewTask({ TaskTitle, TaskPriority, TaskCreatedAt}: TaskP
 
     return (
         <div className={styles.newTask}>
+            <div className={styles.column}>
+                <span className={styles.label}>Title:</span>
+                <span className={styles.value}>{TaskTitle}</span>
+            </div>
 
-        <h2 className={styles.TaskTitle}>Title: {TaskTitle}</h2>
-        <h2 className={styles.TaskPriority}>Priority: {TaskPriority}</h2>
-        <h2 className={styles.TaskCreatedAt}>Created: {TaskCreatedAt.toLocaleDateString('en-GB')}</h2>
+            <div className={styles.column}>
+                <span className={styles.label}>Priority:</span>
+                <span className={styles.value}>{TaskPriority}</span>
+            </div>
 
+            <div className={styles.column}>
+                <span className={styles.label}>Created:</span>
+                <span className={styles.value}>{TaskCreatedAt.toLocaleDateString('en-GB')}</span>
+            </div>
         </div>
     )
 

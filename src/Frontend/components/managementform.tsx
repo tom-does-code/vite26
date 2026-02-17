@@ -1,13 +1,10 @@
 import styles from './styles/management.module.css';
 import { useState } from 'react';
 import ToDoForm from './todomanagement';
-import NewTask from './newtask';
 
 
 export default function ManagementForm() {
     const [activeTab, setActiveTab] = useState('stats');
-
-
     return (
         <>
         
@@ -32,7 +29,6 @@ export default function ManagementForm() {
         {activeTab === 'todo' && (
             <>
             <ToDoForm></ToDoForm>   
-            
             </>
         )}
         </div>
