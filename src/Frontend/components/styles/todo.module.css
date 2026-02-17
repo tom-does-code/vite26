@@ -1,0 +1,35 @@
+.ToDoDiv {
+    background-color: rgb(88,88,88);
+    width: 800px;
+    height: 650px;
+    border-radius: 6px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 35px;
+    position: relative;
+}
+
+.currentTaskSection {
+    position: relative;
+    display: flex;
+    background-color: aliceblue;
+    justify-content: center;
+
+    width: 650px;
+    height: 450px;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: rgb(109, 109, 109);
+    border-radius: 12px;
+    overflow-y: scroll;
+}
+
+.subheading {
+    position: relative;
+}
