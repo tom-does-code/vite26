@@ -10,20 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 $raw = file_get_contents('php://input');
 header('Content-Type: application/json');
-
 $data = json_decode($raw, true);
-$username = $data['username'];
-$password = $data['password'];
+
+$taskId = $data['id'];
+$sessionToken = $data['sessionToken'];
 
 $conn = pg_connect("host=localhost dbname=postgres user=postgres password=1234");
 
-$loginquery = pg_query_params($conn, 'SELECT user_id FROM "newvite" WHERE username = $1 AND password = $2', [$username, $password]);
+$deleteQuery = pg_query_params($conn, 'DELETE FROM "tasks" WHERE id = $1 AND user_id = $2', [$taskId, $sessionToken]);
 
-
-if (pg_num_rows($loginquery) > 0) {
-    $token = pg_fetch_assoc($loginquery);
-
-    echo json_encode(['success' => true, 'token' => $token]);
+if ($deleteQuery) {
+    echo json_encode(['success' => true]);
 } else {
     echo json_encode(['success' => false]);
 }

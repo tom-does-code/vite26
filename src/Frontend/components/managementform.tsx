@@ -3,6 +3,8 @@ import { useState } from 'react';
 import ToDoForm from './todomanagement';
 
 
+
+
 export default function ManagementForm() {
     const [activeTab, setActiveTab] = useState('stats');
     return (
@@ -28,7 +30,7 @@ export default function ManagementForm() {
 
         {activeTab === 'todo' && (
             <>
-            <ToDoForm></ToDoForm>   
+            <ToDoForm ActiveTab={activeTab}></ToDoForm>   
             </>
         )}
         </div>

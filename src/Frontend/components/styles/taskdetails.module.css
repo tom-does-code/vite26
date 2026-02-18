@@ -1,0 +1,97 @@
+.BackDiv {
+    position: absolute;
+    left: 50%;
+    top: 56.7%;
+    transform: translate(-50%, -50%);
+
+    background: linear-gradient(145deg, #1e1e2e, #2a2a3d);
+    width: 650px;
+    height: 450px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    overflow-y: auto;
+    color: white;
+
+    z-index: 150;
+}
+
+.taskHeader {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2ecc71, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(46, 204, 113, 0.15);
+    width: 100%;
+    text-align: center;
+}
+
+.fieldGroup {
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.fieldLabel {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2ecc71;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    margin: 0;
+}
+
+.fieldValue {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 10px 14px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-left: 3px solid #3498db;
+    border-radius: 0 8px 8px 0;
+    margin: 6px 0 0 0;
+}
+
+.priorityLow {
+    border-left-color: #2ecc71;
+    color: #2ecc71;
+}
+
+.priorityMedium {
+    border-left-color: #e67e22;
+    color: #e67e22;
+}
+
+.priorityHigh {
+    border-left-color: #e74c3c;
+    color: #e74c3c;
+}
+
+.ExitButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 70px;
+    height: 28px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(255, 60, 60, 0.15);
+    color: #ff6b6b;
+    font-weight: 600;
+    font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.ExitButton:hover {
+    background-color: rgba(255, 60, 60, 0.3);
+}

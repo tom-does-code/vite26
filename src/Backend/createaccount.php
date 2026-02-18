@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: http://localhost:5173");
-header("Access-Control-Allow-Methods: POST, OPTIONS, GET");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -30,7 +30,7 @@ if (pg_num_rows($exists) > 0) {
 $addinto = pg_query_params($conn, 'INSERT INTO "newvite" (email, password, username, user_id) VALUES ($1, $2, $3, $4)', [$email, $password, $username, $random_id]);
 
 if ($addinto) {
-    echo json_encode(['success' => true]);
-} else {
-    echo json_encode(['success' => false]);
+    echo json_encode(['success' => true, 'token' => $random_id]);
+} else { 
+    echo json_encode(['success' => false, 'token' => 'null']);
 }

@@ -21,7 +21,7 @@ export default function LoginForm() {
         const data = await res.json();
 
         if (data.success) {
-            localStorage.setItem('token', data.token)
+            localStorage.setItem('token', data.token.user_id)
             navigate('/management');
         } else {
             console.log('error invalid user');
@@ -51,6 +51,7 @@ export default function LoginForm() {
         <>
         {isLogin ? (
             <div className={styles.LoginContainer}>
+                <h1>Login</h1>
                 <h2>Username</h2>
                 <input className="usernameInput" onChange={(e) => setUsername(e.target.value)} placeholder='Password'/>
                 <h2>Password</h2>
@@ -61,6 +62,7 @@ export default function LoginForm() {
             </div>
         ) : (
                 <div className={styles.SignupContainer}>
+                <h1>Sign Up</h1>
                 <h2>Email</h2>
                 <input className="signup_emailInput" onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
                 <h2>Username</h2>
