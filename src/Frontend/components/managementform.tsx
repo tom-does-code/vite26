@@ -1,7 +1,7 @@
 import styles from './styles/management.module.css';
 import { useState } from 'react';
 import ToDoForm from './todomanagement';
-
+import StatsSection from './statssection';
 
 
 
@@ -22,10 +22,7 @@ export default function ManagementForm() {
         </div>
 
         {activeTab === 'stats' && (
-            <div className={styles.statsDiv}>
-
-            <h2 className={styles.statTitle}>Statistics</h2>
-        </div>
+            <StatsSection userID="123" tasksCompleted={3} tasksCreated={5} dateCreated={new Date().toLocaleDateString('en-GB')}></StatsSection>
         )}
 
         {activeTab === 'todo' && (

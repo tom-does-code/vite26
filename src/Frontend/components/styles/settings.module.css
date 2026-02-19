@@ -1,0 +1,20 @@
+.SettingsBack {
+    background-color: rgb(88, 88, 88);
+    width: 1000px;
+    height: 800px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: auto;
+}
+
+.Title {
+    font-size: 45px;
+}
+
+
+.Navbar {
+    
+}

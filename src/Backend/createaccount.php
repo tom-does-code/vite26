@@ -15,6 +15,7 @@ $data = json_decode($raw, true);
 $email = $data['email'];
 $username = $data['username'];
 $password = $data['password'];
+$dateCreated = $data['createTime'];
 
 $conn = pg_connect("host=localhost dbname=postgres user=postgres password=1234");
 
@@ -27,7 +28,7 @@ if (pg_num_rows($exists) > 0) {
     return;
 }
 
-$addinto = pg_query_params($conn, 'INSERT INTO "newvite" (email, password, username, user_id) VALUES ($1, $2, $3, $4)', [$email, $password, $username, $random_id]);
+$addinto = pg_query_params($conn, 'INSERT INTO "newvite" (email, password, username, user_id, date_created) VALUES ($1, $2, $3, $4, $5)', [$email, $password, $username, $random_id, $dateCreated]);
 
 if ($addinto) {
     echo json_encode(['success' => true, 'token' => $random_id]);

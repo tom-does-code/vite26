@@ -17,6 +17,7 @@ export default function Navbar() {
                         <li className={styles.logoutbtn}><Link to="/">Log Out</Link></li>
                         <li><Link to="/management">Management</Link></li>
                         <li><Link to="/budgetmanager">Budget Manager</Link></li>
+                        <li><Link to="/settings">Settings</Link></li>
                     </ul>
                 </nav>
             )}

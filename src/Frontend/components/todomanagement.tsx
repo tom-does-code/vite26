@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import AddTaskModal from './AddTaskModal';
 import TaskDetails from './taskdetails';
 
+import { useNavigate } from 'react-router-dom';
+
 interface TaskFromDB {
     id: number,
     task_name: string;
@@ -20,6 +22,7 @@ interface ActiveTabProps {
 export default function ToDoForm({ActiveTab}: ActiveTabProps) {
     const [showModal, setShowModal] = useState(false);
     const [showStats, setShowStats] = useState(true);
+    const navigate = useNavigate();
 
     const [tasks, setTasks] = useState<{id: number, title: string, priorityCap: string, createdAt: Date, description: string}[]>([]);
     const [selectedTask, setSelectedTask] = useState<{
@@ -39,6 +42,12 @@ export default function ToDoForm({ActiveTab}: ActiveTabProps) {
         //const priorityCap = priority.charAt(0).toUpperCase() + priority.slice(1).toLowerCase();
         const sessionToken = localStorage.getItem('token');
 
+        if (!sessionToken) {
+            alert('Invalid login.');
+            navigate('/');
+            return null;
+        }
+
         await fetch('http://localhost:8080/Backend/createtask.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
@@ -54,7 +63,11 @@ export default function ToDoForm({ActiveTab}: ActiveTabProps) {
 
     const retrieveTasks = async () => {
         const sessionToken = localStorage.getItem('token');
-        if (!sessionToken) return "error";
+        if (!sessionToken) {
+            alert('Invalid login.');
+            navigate('/');
+            return "error";
+        }
 
         const res = await fetch('http://localhost:8080/Backend/retrievetasks.php', {
             method: 'POST',
@@ -76,11 +89,17 @@ export default function ToDoForm({ActiveTab}: ActiveTabProps) {
         }
         
     }
-
+    
     const deleteTask = async (id: number) => {
         setTasks(tasks.filter(task => task.id !== id));
 
         const sessionToken = localStorage.getItem('token');
+
+        if (!sessionToken) {
+            alert('Invalid login.');
+            navigate('/');
+            return;
+        }
         
         await fetch('http://localhost:8080/Backend/deletetask.php', {
             method: 'POST',
@@ -91,6 +110,12 @@ export default function ToDoForm({ActiveTab}: ActiveTabProps) {
 
     const displayStats = async (id: number) => {
         const sessionToken = localStorage.getItem('token');
+
+        if (!sessionToken) {
+            alert('Invalid login.');
+            navigate('/');
+            return "error";
+        }
 
         const res = await fetch('http://localhost:8080/Backend/retrievesingletask.php', {
             method: 'POST',

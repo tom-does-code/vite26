@@ -5,6 +5,7 @@ import LoginPage from './pages/authpage';
 import Management from './pages/Management';
 import BudgetManager from './pages/BudgetManager';
 import ProtectedRoute from './ProtectedRoute';
+import Settings from './pages/settings';
 
 function App() {
 
@@ -18,6 +19,9 @@ function App() {
     } />
     <Route path="/budgetmanager" element={
         <ProtectedRoute><BudgetManager /></ProtectedRoute>
+    } />
+    <Route path="/settings" element={
+        <ProtectedRoute><Settings /></ProtectedRoute>
     } />
 </Routes>
     </BrowserRouter>

@@ -36,5 +36,4 @@ export default function NewTask({ id, TaskTitle, TaskPriority, TaskCreatedAt, Ta
             </div>
         </div>
     )
-
 }

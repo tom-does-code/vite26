@@ -30,10 +30,12 @@ export default function LoginForm() {
 
     const TrySignUp = async (email: string, username: string, password: string) => {
         if (email && username && password) {
+            const createTime = new Date().toLocaleDateString('en-GB');
+
             const res = await fetch('http://localhost:8080/Backend/createaccount.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({email, username, password})
+            body: JSON.stringify({email, username, password, createTime})
         })
 
         const data = await res.json();
