@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.local
 
 # Editor directories and files
 .vscode/*
@@ -20,5 +22,14 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
+
+# .NET
+[Bb]in/
+[Oo]bj/
+*.user
+
+# Local SQLite database
+*.db
+*.db-shm
+*.db-wal

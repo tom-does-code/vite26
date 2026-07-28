@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Momentum.Api.Tests/Momentum.Api.Tests.csproj" />
+  <Project Path="Momentum.Api/Momentum.Api.csproj" />
+</Solution>
