@@ -1,32 +1,54 @@
-import './App.css'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import AuthPage from './Pages/AuthPage';
+import TasksPage from './Pages/TasksPage';
+import StatsPage from './Pages/StatsPage';
+import BudgetPage from './Pages/BudgetPage';
+import SettingsPage from './Pages/SettingsPage';
+import NotFoundPage from './Pages/NotFoundPage';
+import AppLayout from './Components/AppLayout';
+import ProtectedRoute from './Components/ProtectedRoute';
+import AuthProvider from './Context/AuthProvider';
+import PreferencesProvider from './Context/PreferencesProvider';
+import ToastProvider from './Context/ToastProvider';
+import { useAuth } from './Context/AuthContext';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LoginPage from './pages/authpage';
-import Management from './pages/Management';
-import BudgetManager from './pages/BudgetManager';
-import ProtectedRoute from './ProtectedRoute';
-import Settings from './pages/settings';
+function LandingRoute() {
+  const { user, loading } = useAuth();
 
-function App() {
+  if (loading) {
+    return null;
+  }
 
-  return (
-    <>
-    <BrowserRouter>
-    <Routes>
-    <Route path="/" element={<LoginPage />} />
-    <Route path="/management" element={
-        <ProtectedRoute><Management /></ProtectedRoute>
-    } />
-    <Route path="/budgetmanager" element={
-        <ProtectedRoute><BudgetManager /></ProtectedRoute>
-    } />
-    <Route path="/settings" element={
-        <ProtectedRoute><Settings /></ProtectedRoute>
-    } />
-</Routes>
-    </BrowserRouter>
-    </>
-  )
+  return user ? <Navigate to="/tasks" replace /> : <AuthPage />;
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <PreferencesProvider>
+          <ToastProvider>
+            <Routes>
+              <Route path="/" element={<LandingRoute />} />
+
+              <Route
+                element={
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="/tasks" element={<TasksPage />} />
+                <Route path="/stats" element={<StatsPage />} />
+                <Route path="/budget" element={<BudgetPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
+              </Route>
+
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </ToastProvider>
+        </PreferencesProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  );
+}

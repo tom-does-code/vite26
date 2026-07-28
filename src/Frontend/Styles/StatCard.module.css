@@ -1,0 +1,56 @@
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 11px;
+}
+
+.accent {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.positive {
+  background-color: rgba(67, 197, 158, 0.16);
+  color: var(--positive);
+}
+
+.warning {
+  background-color: rgba(240, 167, 66, 0.16);
+  color: var(--medium);
+}
+
+.danger {
+  background-color: rgba(242, 96, 122, 0.16);
+  color: var(--negative);
+}
+
+.label {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.value {
+  margin-top: 1px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.hint {
+  margin-top: 2px;
+  color: var(--text-faint);
+  font-size: 12px;
+}

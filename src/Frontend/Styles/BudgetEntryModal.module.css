@@ -1,0 +1,37 @@
+.typeRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.typeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.typeButton:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.expense {
+  border-color: var(--negative);
+  background-color: rgba(242, 96, 122, 0.14);
+  color: var(--negative);
+}
+
+.income {
+  border-color: var(--positive);
+  background-color: rgba(67, 197, 158, 0.14);
+  color: var(--positive);
+}

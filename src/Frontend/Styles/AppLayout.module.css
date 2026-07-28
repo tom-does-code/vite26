@@ -1,0 +1,31 @@
+.shell {
+  min-height: 100vh;
+}
+
+.main {
+  padding: 34px 38px 60px;
+  margin-left: 232px;
+}
+
+.menuButton {
+  display: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .main {
+    padding: 20px 18px 48px;
+    margin-left: 0;
+  }
+
+  .menuButton {
+    display: grid;
+  }
+}

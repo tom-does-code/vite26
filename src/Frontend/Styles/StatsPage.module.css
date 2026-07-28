@@ -1,0 +1,263 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+}
+
+.card {
+  padding: 19px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+}
+
+.panel {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+}
+
+.cardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cardTitle {
+  font-size: 16px;
+}
+
+.cardSubtitle {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.legend {
+  display: flex;
+  gap: 14px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dotCreated,
+.dotCompleted {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+}
+
+.dotCreated {
+  background-color: var(--border-strong);
+}
+
+.dotCompleted {
+  background-color: var(--accent);
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 186px;
+  margin-top: 22px;
+}
+
+.chartColumn {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  height: 100%;
+}
+
+.barCreated,
+.barCompleted {
+  width: 42%;
+  min-height: 3px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+
+.barCreated {
+  background-color: var(--border-strong);
+}
+
+.barCompleted {
+  background-color: var(--accent);
+}
+
+.chartLabel {
+  color: var(--text-faint);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.ringWrap {
+  display: flex;
+  justify-content: center;
+  padding: 22px 0 18px;
+}
+
+.ring {
+  display: grid;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.ringInner {
+  display: grid;
+  place-items: center;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background-color: var(--surface);
+}
+
+.ringValue {
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.ringLabel {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.streak {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--medium);
+}
+
+.streakValue {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.barList {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-top: 20px;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 74px 1fr 28px;
+  align-items: center;
+  gap: 11px;
+}
+
+.barLabel {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.track {
+  height: 8px;
+  border-radius: 20px;
+  background-color: var(--surface-hover);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.35s ease;
+}
+
+.accentFill {
+  background-color: var(--accent);
+}
+
+.high {
+  background-color: var(--high);
+}
+
+.medium {
+  background-color: var(--medium);
+}
+
+.low {
+  background-color: var(--low);
+}
+
+.barValue {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.skeleton {
+  height: 82px;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--surface) 25%, var(--surface-hover) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chartLabel {
+    display: none;
+  }
+}

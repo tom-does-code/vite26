@@ -1,0 +1,40 @@
+.priorityRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.priorityButton {
+  padding: 9px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.priorityButton:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.low {
+  border-color: var(--low);
+  background-color: rgba(78, 168, 222, 0.14);
+  color: var(--low);
+}
+
+.medium {
+  border-color: var(--medium);
+  background-color: rgba(240, 167, 66, 0.14);
+  color: var(--medium);
+}
+
+.high {
+  border-color: var(--high);
+  background-color: rgba(242, 96, 122, 0.14);
+  color: var(--high);
+}
